@@ -1,0 +1,9 @@
+from urllib.request import urlopen
+from bs4 import BeautifulSoup  #bibliotecas necessárias para o início da raspagem
+
+html = urlopen ('http://www.pythonscraping.com/pages/warandpeace.html')
+bs = BeautifulSoup(html.read(), 'html.parser')
+conteudo = bs.findAll('span', {'class':'red'}) #tags de inspeção
+for vermelho in conteudo:
+    print (vermelho.getText())
+    print ('')
